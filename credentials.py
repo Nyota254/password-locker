@@ -32,4 +32,10 @@ class Credential:
         print(str(random_password))
         return str(random_password)
 
+    def delete_credential(self):
+        '''
+        Method for deleting credentials
+        '''
+        Credential.Credentials.remove(self)
+
     
