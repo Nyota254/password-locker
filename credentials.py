@@ -1,3 +1,6 @@
+import random
+import string
+
 class Credential:
     '''
     class for storing user credentials in the application
@@ -18,3 +21,15 @@ class Credential:
         Method for saving user credentials i.e data
         '''
         Credential.Credentials.append(self)
+
+    def password_generator(self):
+        '''
+        Method for random password generation
+        '''
+        
+        password_characters = string.ascii_letters + string.digits + string.punctuation
+        random_password = ''.join(random.choice(password_characters)for i in range(10))
+        print(str(random_password))
+        return str(random_password)
+
+    

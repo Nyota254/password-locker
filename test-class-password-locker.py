@@ -2,6 +2,7 @@ import unittest
 from users import User
 from credentials import Credential
 
+
 class TestUsers(unittest.TestCase):
     '''
     Test class that defines test cases for the users
@@ -53,6 +54,14 @@ class TestUsers(unittest.TestCase):
         self.new_credentials.save_credentials()
 
         self.assertEqual(len(Credential.Credentials),1)
+
+    def test_password_randomiser(self):
+        '''
+        test for random password generator
+        '''
+        #self.password_characters = string.ascii_letters + string.digits + string.punctuation
+        self.new_credentials.account_password.password_generator() 
+        self.assertEqual(self.new_credentials.account_password,0)
 
 if __name__ == "__main__":
     unittest.main()
