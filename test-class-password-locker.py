@@ -17,6 +17,12 @@ class TestUsers(unittest.TestCase):
         self.new_user = User("admin","admin")
         self.new_credentials = Credential("admin","twitter","admin","admin@admin.com","123456")
 
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        Credential.Credentials = []            
+    
     def test_users_init(self):
         '''
         This class is to test whether a new instance was created
@@ -29,7 +35,7 @@ class TestUsers(unittest.TestCase):
         '''
         This is a test to see whether the user can save their user name
         '''
-        # self.new_user = User("admin","admin")
+        
         self.new_user.save_user()
         self.assertEqual(len(User.user_details),1)
 
@@ -55,13 +61,24 @@ class TestUsers(unittest.TestCase):
 
         self.assertEqual(len(Credential.Credentials),1)
 
-    def test_password_randomiser(self):
+    # def test_password_randomiser(self):
+    #     '''
+    #     test for random password generator
+    #     '''
+    #     #self.password_characters = string.ascii_letters + string.digits + string.punctuation
+    #     self.new_credentials.account_password.password_generator() 
+    #     self.assertEqual(self.new_credentials.account_password,0)
+
+    def test_delete_credential(self):
         '''
-        test for random password generator
+        test for deleting of credentials
         '''
-        #self.password_characters = string.ascii_letters + string.digits + string.punctuation
-        self.new_credentials.account_password.password_generator() 
-        self.assertEqual(self.new_credentials.account_password,0)
+        self.new_credentials.save_credentials()
+        self.new_credentials2 = Credential("admin2","twitter2","admin2","admin2@admin.com","1234567")
+        self.new_credentials2.save_credentials()
+
+        self.new_credentials.delete_credential()
+        self.assertEqual(len(Credential.Credentials),1)
 
 if __name__ == "__main__":
     unittest.main()
