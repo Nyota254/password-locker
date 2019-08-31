@@ -40,3 +40,32 @@ def display_credentials():
     Function for displaying credentials
     '''
     return Credential.display_credentials()
+
+def main():
+
+
+    print("Hello there welcome to password locker.Remember millions of passwords with one")
+    print("Lets get started")
+    print("1. Create an Account")
+    print("Please enter your username")
+    user = input()
+    print("Please enter your password")
+    userpassword = input()
+    save_users(create_user(user,userpassword))
+    print(f"Congratulations {user} you have successfuly created an account!!")
+    while True:
+        print("2.Login to start managing your credentials")
+        print("Username:")
+        inputted_username = input()
+        print("Password:")
+        inputtedpassword = input()
+        if inputtedpassword == userpassword and inputted_username == user:
+            print(f"Hi {user} Welcome to your password portal")
+            print("Use the following codes to navigate through your portal")
+            break
+        else:
+            print("please enter correct password or check whether your username matches your password")
+
+
+if __name__ == "__main__":
+    main()
