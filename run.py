@@ -22,3 +22,21 @@ def create_credentials(userName,Site,accountName,accountEmail,accountPassword):
     '''
     new_credential = Credential(userName,Site,accountName,accountEmail,accountPassword)
     return new_credential
+
+def save_credential(Credential):
+    '''
+    Function for saving credential
+    '''
+    Credential.save_credentials()
+
+def delete_credential(Credential):
+    '''
+    Function for deleting credentials
+    '''
+    Credential.delete_credentials()
+
+def display_credentials():
+    '''
+    Function for displaying credentials
+    '''
+    return Credential.display_credentials()
