@@ -33,7 +33,7 @@ def delete_credential(Credential):
     '''
     Function for deleting credentials
     '''
-    Credential.delete_credentials()
+    Credential.delete_credential(Credential)
 
 def display_credentials():
     '''
@@ -67,43 +67,55 @@ def main():
                 print("Use the following codes to navigate through your portal:\n ac - add credential  dc - delete credential  di - display credentials \n ex - exitportal")
                 print("Please Input your code:")
                 code = input()
-            if code == "ac":
-                print("New Credential Creation")
-                print("-"*10)
-                userName = user
-                print("Please enter the platform you want to save the credentials for")
-                Site = input()
-                print("Please enter the user name for the site")
-                accountName = input()
-                print("Please enter the email used to create the account")
-                accountEmail = input()
-                print("Please enter the password to remember")
-                accountPassword =input()
+                if code == 'ac':
+                    print("New Credential Creation")
+                    print("-"*10)
+                    userName = user
+                    print("Please enter the platform you want to save the credentials for")
+                    Site = input()
+                    print("Please enter the user name for the site")
+                    accountName = input()
+                    print("Please enter the email used to create the account")
+                    accountEmail = input()
+                    print("Please enter the password to remember")
+                    accountPassword =input()
 
-                save_credential(create_credentials(userName,Site,accountName,accountEmail,accountPassword))
-                print("\n")
-                print(f"New account credential created for {Site} account")
-                print("\n")
+                    save_credential(create_credentials(userName,Site,accountName,accountEmail,accountPassword))
+                    print("\n")
+                    print(f"New account credential created for {Site} account")
+                    print("\n")
 
-            elif code == "di":
-                if display_credentials():
-                    print("Here is a list of your credentials")
-                    print('\n')
-
-                    for credential in display_credentials():
-                        print(f"{credential.site}.....{credential.user_name} {credential.account_password}")
-
+                elif code == "di":
+                    if display_credentials():
+                        print("Here is a list of your credentials")
                         print('\n')
+
+                        for credential in display_credentials():
+                            print(f"{credential.site}.....{credential.user_name} {credential.account_password}")
+                            print('\n')
                     else:
                         print('\n')
                         print("No credentials saved yet")
                         print('\n')
 
-                break                     
-            break
-        else:
-            print("please enter correct password or check whether your username matches your password")
+                elif code == "dc":
+                    print("Are you sure you want to delete this credentials y for Yes or n for No?")
+                    answer = input()
+                    if answer == "y":
+                        # delete_credential(Credential)
+                        print("Credentials deleted...")
+                    else:
+                        print("Whew that was close...")
 
+                elif code == "ex":
+                    print("Thank you always a pleasure to be your storage option")     
+                    break                     
+
+                else:
+                    print("Please use the short codes provided")
+            else:
+                print("please enter correct password or check whether your username matches your password")
+                
 
 if __name__ == "__main__":
     main()
