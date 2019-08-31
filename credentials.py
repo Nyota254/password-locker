@@ -38,3 +38,10 @@ class Credential:
         '''
         Credential.Credentials.remove(self)
 
+    @classmethod
+    def display_credentials(cls):
+        '''
+        Method for displaying all credentials
+        '''
+        return cls.Credentials
+
