@@ -66,8 +66,9 @@ class TestUsers(unittest.TestCase):
     #     test for random password generator
     #     '''
     #     #self.password_characters = string.ascii_letters + string.digits + string.punctuation
-    #     self.new_credentials.account_password.password_generator() 
-    #     self.assertEqual(self.new_credentials.account_password,0)
+    #     self.new_credentials2 = Credential("admin2","twitter2","admin2","admin2@admin.com",password_generator())
+    #     self.new_credentials2.save_credentials()
+    #     self.assertEqual(new_credentials2.account_password,0)
 
     def test_delete_credential(self):
         '''
