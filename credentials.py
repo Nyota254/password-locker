@@ -38,4 +38,3 @@ class Credential:
         '''
         Credential.Credentials.remove(self)
 
-    
