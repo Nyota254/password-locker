@@ -22,7 +22,8 @@ class Credential:
         '''
         Credential.Credentials.append(self)
 
-    def password_generator(passwordLength=10):
+    @classmethod
+    def password_generator(cls):
         '''
         Method for random password generation
         '''

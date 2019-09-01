@@ -41,6 +41,12 @@ def display_credentials():
     '''
     return Credential.display_credentials()
 
+def generate_password():
+    '''
+    Function for generating password
+    '''
+    return Credential.password_generator()
+
 def main():
 
     print("Hello there welcome to password locker.Remember millions of passwords with one")
@@ -79,9 +85,13 @@ def main():
                         accountName = input()
                         print("Please enter the email used to create the account")
                         accountEmail = input()
-
-                        print("Please enter the password to remember")
-                        accountPassword =input()
+                        print("Hi there would you like a password generated for you\n(y) for yes (n) for no\n P.S password generatated is standard and hard to crack")
+                        response = input()
+                        if response == "y":
+                            accountPassword = generate_password()
+                        else:
+                            print("Please enter the password to remember")
+                            accountPassword =input()
 
                         save_credential(create_credentials(userName,Site,accountName,accountEmail,accountPassword))
                         print("\n")
