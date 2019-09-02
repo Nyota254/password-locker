@@ -1,5 +1,5 @@
 # Password Locker
-#### Password Locker application for storing your passwords, 20-july-2019
+#### Password Locker application for storing your passwords, 1-Sep-2019
 #### By **Kingecha Kevin Nyota**
 ## Description
 This is a Terminal run application that Helps users store their passwords safely since their are so many accounts this days and its very difficult to remember all of them.
